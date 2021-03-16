@@ -1,10 +1,18 @@
-<h2 class="list-title">Contact List</h2>
-<p class="list-description">
-  You have {{ contacts.length > 0 ? contacts.length : null }} contacts
-</p>
+<div class="contact-list-block">
+  <h2 class="list-title">Contact List</h2>
+  <p class="list-description">
+    You have {{ contacts.length > 0 ? contacts.length : null }} contacts
+  </p>
 
-<mat-list>
-  <mat-list-item *ngFor="let contact of contacts">
-    {{ contact.first_name }}
-  </mat-list-item>
-</mat-list>
+  <mat-list class="contact-list">
+    <mat-list-item class="contact-list-item" *ngFor="let contact of contacts">
+      <!-- <mat-icon aria-label="Side nav toggle icon">perm_identity</mat-icon> -->
+      <img
+        class="contact-image"
+        src="{{ contact.avatar }}"
+        alt="Profile Avatar"
+        onerror="this.src='../../../assets/perm_identity_black_24dp.svg';"
+      /><span class="contact-first-name">{{ contact.first_name }}</span>
+    </mat-list-item>
+  </mat-list>
+</div>
