@@ -1,8 +1,12 @@
 .contact-list-block {
-  padding: 26px;
+  margin-bottom: 20px;
 }
 .contact-list-item {
   display: flex;
+  &:hover {
+    cursor: pointer;
+    background-color: #e0e0e0;
+  }
 }
 .contact-image {
   height: 30px;

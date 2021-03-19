@@ -1,1 +1,22 @@
-<h1>Contact page</h1>
+<div class="page-block">
+  <app-contact-list
+    *ngIf="!isContactFormOpen"
+    [contacts]="contacts"
+  ></app-contact-list>
+
+  <form *ngIf="!isContactFormOpen" class="contact-name-input">
+    <mat-form-field>
+      <mat-label>New Contact *</mat-label>
+      <input matInput placeholder="New Contact *" />
+    </mat-form-field>
+    <button
+      class="new-contact-button"
+      type="button"
+      (click)="openContactForm()"
+    >
+      <mat-icon aria-label="Side nav toggle icon">add_circle_outline</mat-icon>
+    </button>
+  </form>
+
+  <app-contact-form *ngIf="isContactFormOpen"></app-contact-form>
+</div>

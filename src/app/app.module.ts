@@ -10,6 +10,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
+import { MatInputModule } from '@angular/material/input';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { ContactsComponent } from './pages/contacts/contacts.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -26,6 +28,7 @@ import { ContactFormComponent } from './components/contact-form/contact-form.com
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     NoopAnimationsModule,
     LayoutModule,
@@ -34,6 +37,7 @@ import { ContactFormComponent } from './components/contact-form/contact-form.com
     MatSidenavModule,
     MatIconModule,
     MatListModule,
+    MatInputModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
