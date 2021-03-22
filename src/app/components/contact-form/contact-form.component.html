@@ -1,1 +1,52 @@
-<p>contact-form works!</p>
+<div class="contact-form-container">
+  <div class="profile-area">
+    <img
+      class="contact-image"
+      src="../../../assets/perm_identity_black_24dp.svg"
+      alt="Profile avatar"
+    />
+    <h2 class="contact-firstname">Paul Sheehan</h2>
+  </div>
+  <div class="address-area">
+    <!-- Address Form -->
+    <h3>Address #1</h3>
+    <form class="contact-address-form">
+      <!-- Street 1 Input -->
+      <mat-form-field>
+        <mat-label>Street 1 *</mat-label>
+        <input matInput placeholder="Street 1" />
+      </mat-form-field>
+      <!-- Street 2 Input -->
+      <mat-form-field>
+        <mat-label>Street 2 *</mat-label>
+        <input matInput placeholder="Street 2" />
+      </mat-form-field>
+      <!-- Town Input -->
+      <mat-form-field>
+        <mat-label>Town *</mat-label>
+        <input matInput placeholder="Town" />
+      </mat-form-field>
+      <!-- Country Dropdown -->
+      <mat-form-field appearance="fill">
+        <mat-label>Country *</mat-label>
+        <mat-select [(value)]="countrySelected">
+          <mat-option>None</mat-option>
+          <ng-container *ngFor="let country of countriesList">
+            <mat-option value="country">{{ country.name }}</mat-option>
+          </ng-container>
+        </mat-select>
+      </mat-form-field>
+      <!-- Form Buttons -->
+      <div class="contact-form-submit-area">
+        <button class="form-button contact-form-button" type="button">
+          <mat-icon aria-label="Side nav toggle icon">add</mat-icon>
+          <span>Add Address</span>
+        </button>
+        <button class="form-button contact-form-button" type="button">
+          <mat-icon aria-label="Side nav toggle icon">save</mat-icon>
+          <span>Add Address</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

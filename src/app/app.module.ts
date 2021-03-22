@@ -12,7 +12,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { MatSelectModule } from '@angular/material/select';
 import { ContactsComponent } from './pages/contacts/contacts.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ContactListComponent } from './components/contact-list/contact-list.component';
@@ -38,6 +38,7 @@ import { ContactFormComponent } from './components/contact-form/contact-form.com
     MatIconModule,
     MatListModule,
     MatInputModule,
+    MatSelectModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

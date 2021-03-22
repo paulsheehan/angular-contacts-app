@@ -1,19 +1,4 @@
-.new-contact-button {
-}
 .contact-name-input {
   display: flex;
   align-items: center;
-}
-.new-contact-button {
-  border-style: none;
-  background-color: transparent;
-  display: flex;
-  align-items: center;
-  padding: 8px 35px;
-  margin-left: 6px;
-  border-radius: 2px;
-  &:hover {
-    cursor: pointer;
-    background-color: #e0e0e0;
-  }
 }

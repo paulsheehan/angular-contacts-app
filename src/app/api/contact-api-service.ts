@@ -8,6 +8,20 @@ export type Contact = {
   avatar: string;
 };
 
+export type Address = {
+  street1: string;
+  street2: string;
+  town: string;
+  country: string;
+  contactId: string;
+  id: number;
+};
+
+export type Country = {
+  iso2: string;
+  name: string;
+};
+
 function request<TResponse>(
   url: string,
   config: RequestInit = {}
@@ -21,7 +35,15 @@ function request<TResponse>(
 export function getAllContacts(): Promise<Array<Contact>> {
   let url = baseUrl + '/contacts';
 
-  return request<Array<Contact>>(baseUrl + '/contacts').then((contacts) => {
+  return request<Array<Contact>>(url).then((contacts) => {
     return contacts;
+  });
+}
+
+export function getCountriesList(): Promise<Array<Country>> {
+  let url = baseUrl + '/countries';
+
+  return request<Array<Country>>(url).then((countries) => {
+    return countries;
   });
 }
