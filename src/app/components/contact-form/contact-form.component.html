@@ -7,7 +7,10 @@
       src="../../../assets/perm_identity_black_24dp.svg"
       alt="Profile avatar"
     />
-    <h2 class="contact-firstname">Paul Sheehan</h2>
+    <h2 *ngIf="contact" class="contact-firstname">{{ contact.first_name }}</h2>
+  </div>
+  <div class="address-area" *ngFor="let address of contact.addresses">
+    <p>{{ address.street1 }}</p>
   </div>
   <div class="address-area">
     <!-- Address Form -->

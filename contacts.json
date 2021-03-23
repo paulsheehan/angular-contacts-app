@@ -33,6 +33,14 @@
       "country": "GB",
       "contactId": "2",
       "id": 1
+    },
+    {
+      "street1": "Queen Anne's",
+      "street2": "Bloomsbury",
+      "town": "London",
+      "country": "GB",
+      "contactId": "2",
+      "id": 2
     }
   ],
   "countries": [
