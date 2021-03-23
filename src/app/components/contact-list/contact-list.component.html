@@ -5,7 +5,11 @@
   </p>
 
   <mat-list class="contact-list">
-    <mat-list-item class="contact-list-item" *ngFor="let contact of contacts">
+    <mat-list-item
+      class="contact-list-item"
+      *ngFor="let contact of contacts"
+      (click)="editContact(contact)"
+    >
       <!-- <mat-icon aria-label="Side nav toggle icon">perm_identity</mat-icon> -->
       <img
         class="contact-image"

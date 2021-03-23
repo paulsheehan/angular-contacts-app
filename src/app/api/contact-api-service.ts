@@ -47,3 +47,11 @@ export function getCountriesList(): Promise<Array<Country>> {
     return countries;
   });
 }
+
+export function getAddressesList(id: number): Promise<Array<Address>> {
+  let url = baseUrl + '/addresses/' + id;
+
+  return request<Array<Address>>(url).then((addresses) => {
+    return addresses;
+  });
+}

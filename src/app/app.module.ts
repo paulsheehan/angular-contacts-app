@@ -29,6 +29,7 @@ import { ContactFormComponent } from './components/contact-form/contact-form.com
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     NoopAnimationsModule,
     LayoutModule,

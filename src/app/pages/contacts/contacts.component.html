@@ -2,6 +2,7 @@
   <app-contact-list
     *ngIf="!isContactFormOpen"
     [contacts]="contacts"
+    (editContactEvent)="editContact($event)"
   ></app-contact-list>
 
   <form *ngIf="!isContactFormOpen" class="contact-name-input">
@@ -18,5 +19,8 @@
     </button>
   </form>
 
-  <app-contact-form *ngIf="isContactFormOpen"></app-contact-form>
+  <app-contact-form
+    *ngIf="isContactFormOpen"
+    [contact]="selectedContact"
+  ></app-contact-form>
 </div>

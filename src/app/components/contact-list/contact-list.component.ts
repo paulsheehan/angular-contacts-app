@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Contact } from '../../api/contact-api-service';
 @Component({
   selector: 'app-contact-list',
@@ -8,5 +8,12 @@ import { Contact } from '../../api/contact-api-service';
 export class ContactListComponent implements OnInit {
   constructor() {}
   @Input() contacts: Contact[];
+  isContactFormOpen: Boolean = false;
+  selectedContact: Object = {};
+  @Output() editContactEvent = new EventEmitter<Contact>();
+
+  editContact(contact: Contact) {
+    this.editContactEvent.emit(contact);
+  }
   ngOnInit(): void {}
 }

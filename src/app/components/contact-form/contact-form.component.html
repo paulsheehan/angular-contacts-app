@@ -1,4 +1,6 @@
 <div class="contact-form-container">
+  <h1 *ngIf="!hasContact">New Contact</h1>
+  <h1 *ngIf="hasContact">Edit Contact</h1>
   <div class="profile-area">
     <img
       class="contact-image"
@@ -13,8 +15,8 @@
     <form class="contact-address-form">
       <!-- Street 1 Input -->
       <mat-form-field>
-        <mat-label>Street 1 *</mat-label>
-        <input matInput placeholder="Street 1" />
+        <mat-label>Street 1</mat-label>
+        <input matInput placeholder="Street 1" required />
       </mat-form-field>
       <!-- Street 2 Input -->
       <mat-form-field>
@@ -38,15 +40,20 @@
       </mat-form-field>
       <!-- Form Buttons -->
       <div class="contact-form-submit-area">
+        <!-- When form is valid button becomes available -->
         <button class="form-button contact-form-button" type="button">
           <mat-icon aria-label="Side nav toggle icon">add</mat-icon>
           <span>Add Address</span>
         </button>
         <button class="form-button contact-form-button" type="button">
           <mat-icon aria-label="Side nav toggle icon">save</mat-icon>
-          <span>Add Address</span>
+          <span>Save</span>
         </button>
       </div>
     </form>
+    <ng-container *ngIf="addressesList.length > 0">
+      <p>We have addresses!</p>
+      <!-- <p *ngFor="let address of addressesList">{{ address.street1 }}</p> -->
+    </ng-container>
   </div>
 </div>
