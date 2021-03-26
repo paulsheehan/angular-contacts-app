@@ -40,12 +40,14 @@ export class ContactFormComponent implements OnInit {
     };
     if (newAddress.id) {
       this.apiService.putAddress(newAddress).subscribe((address: Address) => {
+        this.addressList.controls[index].markAsPristine();
         this.addressList.controls[index].patchValue({
           ...address,
         });
       });
     } else {
       this.apiService.postAddress(newAddress).subscribe((address: Address) => {
+        this.addressList.controls[index].markAsPristine();
         this.addressList.controls[index].patchValue({
           ...address,
         });
