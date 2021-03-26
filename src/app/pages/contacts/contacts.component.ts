@@ -44,12 +44,13 @@ export class ContactsComponent implements OnInit {
     let name = this.form.controls.contactName.value;
     let firstName = name.split(' ')[0];
     let secondName = name.split(' ').slice(1).join(' ');
+
     const contact = {
       first_name: firstName,
       last_name: secondName,
       avatar: '',
       addresses: [],
-      id: this.contacts.length,
+      id: this.contacts.length + 1,
     };
 
     this.apiService.postContact(contact).subscribe((contact: Contact) => {
@@ -61,6 +62,15 @@ export class ContactsComponent implements OnInit {
   editContact = (contact: Contact): void => {
     this.selectedContact = contact;
     this.openContactForm();
+  };
+  deleteContact = (contact: Contact): void => {
+    this.apiService.deleteContact(contact).subscribe(() => {
+      this.contacts.splice(
+        this.contacts.findIndex(({ id }) => id == contact.id),
+        1
+      );
+      console.log('contacts list==>', this.contacts);
+    });
   };
   ngOnInit(): void {
     this.getContactInformation();

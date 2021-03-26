@@ -1,10 +1,4 @@
 <div class="page-block">
-  <app-contact-list
-    *ngIf="!isContactFormOpen"
-    [contacts]="contacts"
-    (editContactEvent)="editContact($event)"
-  ></app-contact-list>
-
   <form
     *ngIf="!isContactFormOpen"
     class="contact-name-input"
@@ -28,6 +22,14 @@
       <mat-icon aria-label="Add contact icon">add_circle_outline</mat-icon>
     </button>
   </form>
+
+  <app-contact-list
+    *ngIf="!isContactFormOpen"
+    [contacts]="contacts"
+    (editContactEvent)="editContact($event)"
+    (deleteContactEvent)="deleteContact($event)"
+  ></app-contact-list>
+
   <app-contact-form
     *ngIf="isContactFormOpen"
     [contact]="selectedContact"

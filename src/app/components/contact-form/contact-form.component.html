@@ -2,7 +2,8 @@
   <div class="profile-area">
     <img
       class="contact-image"
-      src="../../../assets/perm_identity_black_24dp.svg"
+      src="{{ contact.avatar }}"
+      onerror="this.src='../../../assets/perm_identity_black_24dp.svg';"
       alt="Profile avatar"
     />
     <h2 *ngIf="contact" class="contact-name">
@@ -11,7 +12,6 @@
   </div>
 
   <div class="address-area" [formGroup]="addressFormList">
-    <h3>Address #1</h3>
     <div formArrayName="addressList">
       <ng-container *ngFor="let address of addressList.controls; index as i">
         <!-- Address Form for exsisting addresses -->
@@ -20,6 +20,16 @@
           (ngSubmit)="onSubmit(i)"
           formGroupName="{{ i }}"
         >
+          <div class="contact-form-head">
+            <h3>Address #{{ i + 1 }}</h3>
+            <button
+              class="form-button contact-form-button"
+              (click)="onClose(i)"
+            >
+              <mat-icon aria-label="Side nav toggle icon">clear</mat-icon>
+            </button>
+          </div>
+
           <!-- Street 1 Input -->
           <mat-form-field>
             <mat-label>Street 1</mat-label>

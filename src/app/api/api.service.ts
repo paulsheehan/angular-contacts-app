@@ -65,6 +65,9 @@ export class ApiService {
       options
     );
   }
+  deleteRequest(url: string): Observable<any> {
+    return this.http.delete(url);
+  }
 
   getAllContacts(): Observable<any> {
     let url: string = this.baseUrl + '/contacts';
@@ -90,5 +93,15 @@ export class ApiService {
     let id = address.id;
     let url: string = this.baseUrl + '/addresses/' + id;
     return this.putRequest(url, address);
+  }
+  deleteAddress(address: Address): Observable<Address> {
+    let id = address.id;
+    let url: string = this.baseUrl + '/addresses/' + id;
+    return this.deleteRequest(url);
+  }
+  deleteContact(contact: Contact): Observable<Contact> {
+    let id = contact.id;
+    let url: string = this.baseUrl + '/contacts/' + id;
+    return this.deleteRequest(url);
   }
 }

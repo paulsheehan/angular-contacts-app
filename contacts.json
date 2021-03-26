@@ -1,12 +1,6 @@
 {
   "contacts": [
     {
-      "id": 1,
-      "first_name": "Aloy",
-      "last_name": "Sobeck",
-      "avatar": "https://pbs.twimg.com/profile_images/862284388012367872/sBzixGdN.jpg"
-    },
-    {
       "id": 2,
       "first_name": "Edward",
       "last_name": "Kenway",
@@ -19,111 +13,14 @@
       "avatar": "https://pbs.twimg.com/profile_images/630503477748195328/GWKlmRm-.jpg"
     },
     {
-      "avatar": "https://handmade.network/static/light/empty-avatar.svg",
-      "first_name": "John",
-      "last_name": "Doe",
-      "id": 4
-    },
-    {
-      "first_name": "Aloy",
-      "last_name": "Sobeck",
-      "avatar": null,
-      "id": 5
-    },
-    {
-      "first_name": "Aloy",
-      "last_name": "Sobeck",
-      "avatar": null,
-      "id": -1
-    },
-    {
-      "first_name": "Aloy",
-      "last_name": "Sobeck",
-      "avatar": null,
-      "id": 6
-    },
-    {
       "first_name": "Paul",
       "last_name": "Sheehan",
       "avatar": "",
       "addresses": [],
-      "id": 7
+      "id": 4
     }
   ],
-  "addresses": [
-    {
-      "street1": "Yo",
-      "street2": "hg",
-      "town": "dublin",
-      "country": "ES",
-      "id": 1,
-      "contactId": "3"
-    },
-    {
-      "street1": "AA",
-      "street2": "AA",
-      "town": "aaaa",
-      "country": "BE",
-      "id": 2,
-      "contactId": "3"
-    },
-    {
-      "street1": "Street Name",
-      "street2": "bb",
-      "town": "duba",
-      "country": "NL",
-      "id": 3,
-      "contactId": "2"
-    },
-    {
-      "street1": "Street Name",
-      "street2": "a",
-      "town": "ss",
-      "country": "CH",
-      "id": 4,
-      "contactId": "1"
-    },
-    {
-      "street1": "AA",
-      "street2": "aaa",
-      "town": ",,,",
-      "country": "CH",
-      "id": 5,
-      "contactId": "1"
-    },
-    {
-      "street1": "avv",
-      "street2": "ss",
-      "town": "s",
-      "country": "CH",
-      "id": 6,
-      "contactId": "4"
-    },
-    {
-      "street1": "s",
-      "street2": "kk",
-      "town": "kka",
-      "country": "CH",
-      "id": 7,
-      "contactId": "2"
-    },
-    {
-      "street1": "jj",
-      "street2": "jj",
-      "town": "jj",
-      "country": "CH",
-      "id": 8,
-      "contactId": "3"
-    },
-    {
-      "street1": "James St",
-      "street2": "James ",
-      "town": "Dublin",
-      "country": "BE",
-      "id": 9,
-      "contactId": "7"
-    }
-  ],
+  "addresses": [],
   "countries": [
     {
       "iso2": "DE",

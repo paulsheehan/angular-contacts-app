@@ -68,6 +68,18 @@ export class ContactFormComponent implements OnInit {
     });
     this.addressList.push(addressFormGroup);
   };
+  onClose = (index: number): void => {
+    const address = {
+      ...this.addressList.controls[index].value,
+    };
+    if (address.id) {
+      this.apiService.deleteAddress(address).subscribe(() => {
+        this.addressList.removeAt(index);
+      });
+    } else {
+      this.addressList.removeAt(index);
+    }
+  };
 
   ngOnInit(): void {
     if (Object.keys(this.contact).length > 0) {
