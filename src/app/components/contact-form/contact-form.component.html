@@ -5,7 +5,9 @@
       src="../../../assets/perm_identity_black_24dp.svg"
       alt="Profile avatar"
     />
-    <h2 *ngIf="contact" class="contact-firstname">{{ contact.first_name }}</h2>
+    <h2 *ngIf="contact" class="contact-name">
+      {{ contact.first_name + " " + contact.last_name }}
+    </h2>
   </div>
 
   <div class="address-area" [formGroup]="addressFormList">

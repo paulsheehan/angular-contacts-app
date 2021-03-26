@@ -33,7 +33,6 @@ export class ContactFormComponent implements OnInit {
   });
 
   onSubmit = (index: number): void => {
-    console.log(this.addressList.controls[index]);
     const newAddress = {
       ...this.addressList.controls[index].value,
       contactId: this.contact.id.toString(),
@@ -67,20 +66,18 @@ export class ContactFormComponent implements OnInit {
       country: new FormControl(address.country, [Validators.required]),
       id: new FormControl(address.id),
     });
-    console.log(addressFormGroup);
     this.addressList.push(addressFormGroup);
   };
 
   ngOnInit(): void {
     if (Object.keys(this.contact).length > 0) {
-      this.hasContact = true;
       this.addresses = this.contact.addresses.slice();
       for (let i in this.addresses) {
         this.addAddress(this.addresses[i]);
       }
       this.addAddress();
     } else {
-      this.hasContact = false;
+      // Create new contact object
     }
 
     // Get countries for form select

@@ -9,6 +9,7 @@
     *ngIf="!isContactFormOpen"
     class="contact-name-input"
     [formGroup]="form"
+    (ngSubmit)="newContact()"
   >
     <mat-form-field>
       <mat-label>New Contact</mat-label>
@@ -21,9 +22,8 @@
     </mat-form-field>
     <button
       class="form-button contact-form-button"
-      type="button"
+      type="submit"
       [disabled]="form.invalid"
-      (click)="openContactForm()"
     >
       <mat-icon aria-label="Add contact icon">add_circle_outline</mat-icon>
     </button>

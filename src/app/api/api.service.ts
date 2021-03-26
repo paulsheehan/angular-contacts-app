@@ -78,6 +78,10 @@ export class ApiService {
     let url: string = this.baseUrl + '/addresses';
     return this.getRequest(url);
   }
+  postContact(contact: Contact): Observable<Contact> {
+    let url: string = this.baseUrl + '/contacts';
+    return this.postRequest(url, contact);
+  }
   postAddress(address: Address): Observable<Address> {
     let url: string = this.baseUrl + '/addresses';
     return this.postRequest(url, address);
