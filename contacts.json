@@ -27,28 +27,20 @@
   ],
   "addresses": [
     {
-      "street1": "Queen Asssssnne's",
-      "street2": "Bloomsburyaaaaac",
-      "town": "London",
-      "country": "country",
-      "id": 1,
-      "contactId": "2"
-    },
-    {
-      "street1": "new",
-      "street2": "addressa",
-      "town": "whothis",
-      "country": "GB",
-      "id": 2,
-      "contactId": "2"
-    },
-    {
-      "street1": "Street Name",
-      "street2": "sssw",
+      "street1": "Yo",
+      "street2": "hg",
       "town": "dublin",
-      "country": "GB",
-      "id": 3,
-      "contactId": "1"
+      "country": "ES",
+      "id": 1,
+      "contactId": "3"
+    },
+    {
+      "street1": "AA",
+      "street2": "AA",
+      "town": "a",
+      "country": "BE",
+      "id": 2,
+      "contactId": "3"
     }
   ],
   "countries": [
