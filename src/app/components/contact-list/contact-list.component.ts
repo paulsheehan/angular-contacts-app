@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Contact } from '../../api/contact-api-service';
+import { Contact } from '../../api/api.service';
 @Component({
   selector: 'app-contact-list',
   templateUrl: './contact-list.component.html',

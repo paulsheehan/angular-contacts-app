@@ -5,17 +5,27 @@
     (editContactEvent)="editContact($event)"
   ></app-contact-list>
 
-  <form *ngIf="!isContactFormOpen" class="contact-name-input">
+  <form
+    *ngIf="!isContactFormOpen"
+    class="contact-name-input"
+    [formGroup]="form"
+  >
     <mat-form-field>
-      <mat-label>New Contact *</mat-label>
-      <input matInput placeholder="New Contact *" />
+      <mat-label>New Contact</mat-label>
+      <input
+        matInput
+        placeholder="New Contact *"
+        formControlName="contactName"
+        required
+      />
     </mat-form-field>
     <button
       class="form-button contact-form-button"
       type="button"
+      [disabled]="form.invalid"
       (click)="openContactForm()"
     >
-      <mat-icon aria-label="Side nav toggle icon">add_circle_outline</mat-icon>
+      <mat-icon aria-label="Add contact icon">add_circle_outline</mat-icon>
     </button>
   </form>
   <app-contact-form

@@ -1,6 +1,4 @@
 <div class="contact-form-container">
-  <h1 *ngIf="!hasContact">New Contact</h1>
-  <h1 *ngIf="hasContact">Edit Contact</h1>
   <div class="profile-area">
     <img
       class="contact-image"
@@ -9,54 +7,78 @@
     />
     <h2 *ngIf="contact" class="contact-firstname">{{ contact.first_name }}</h2>
   </div>
-  <div class="address-area" *ngFor="let address of contact.addresses">
-    <p>{{ address.street1 }}</p>
-  </div>
-  <div class="address-area">
-    <!-- Address Form -->
+
+  <div class="address-area" [formGroup]="addressFormList">
     <h3>Address #1</h3>
-    <form class="contact-address-form">
-      <!-- Street 1 Input -->
-      <mat-form-field>
-        <mat-label>Street 1</mat-label>
-        <input matInput placeholder="Street 1" required />
-      </mat-form-field>
-      <!-- Street 2 Input -->
-      <mat-form-field>
-        <mat-label>Street 2 *</mat-label>
-        <input matInput placeholder="Street 2" />
-      </mat-form-field>
-      <!-- Town Input -->
-      <mat-form-field>
-        <mat-label>Town *</mat-label>
-        <input matInput placeholder="Town" />
-      </mat-form-field>
-      <!-- Country Dropdown -->
-      <mat-form-field appearance="fill">
-        <mat-label>Country *</mat-label>
-        <mat-select [(value)]="countrySelected">
-          <mat-option>None</mat-option>
-          <ng-container *ngFor="let country of countriesList">
-            <mat-option value="country">{{ country.name }}</mat-option>
-          </ng-container>
-        </mat-select>
-      </mat-form-field>
-      <!-- Form Buttons -->
-      <div class="contact-form-submit-area">
-        <!-- When form is valid button becomes available -->
-        <button class="form-button contact-form-button" type="button">
-          <mat-icon aria-label="Side nav toggle icon">add</mat-icon>
-          <span>Add Address</span>
-        </button>
-        <button class="form-button contact-form-button" type="button">
-          <mat-icon aria-label="Side nav toggle icon">save</mat-icon>
-          <span>Save</span>
-        </button>
-      </div>
-    </form>
-    <ng-container *ngIf="addressesList.length > 0">
-      <p>We have addresses!</p>
-      <!-- <p *ngFor="let address of addressesList">{{ address.street1 }}</p> -->
-    </ng-container>
+    <div formArrayName="addressList">
+      <ng-container *ngFor="let address of addressList.controls; index as i">
+        <!-- Address Form for exsisting addresses -->
+        <form
+          class="contact-address-form"
+          (ngSubmit)="onSubmit(i)"
+          formGroupName="{{ i }}"
+        >
+          <!-- Street 1 Input -->
+          <mat-form-field>
+            <mat-label>Street 1</mat-label>
+            <input
+              matInput
+              placeholder="Street 1"
+              formControlName="street1"
+              required
+            />
+          </mat-form-field>
+          <!-- Street 2 Input -->
+          <mat-form-field>
+            <mat-label>Street 2</mat-label>
+            <input
+              matInput
+              placeholder="Street 2"
+              formControlName="street2"
+              required
+            />
+          </mat-form-field>
+          <!-- Town Input -->
+          <mat-form-field>
+            <mat-label>Town</mat-label>
+            <input
+              matInput
+              placeholder="Town"
+              formControlName="town"
+              required
+            />
+          </mat-form-field>
+          <!-- Country Dropdown -->
+          <mat-form-field appearance="fill">
+            <mat-label>Country</mat-label>
+            <mat-select formControlName="country" required>
+              <ng-container *ngFor="let country of countriesList">
+                <mat-option value="country">{{ country.name }}</mat-option>
+              </ng-container>
+            </mat-select>
+          </mat-form-field>
+          <!-- Form Buttons -->
+          <div class="contact-form-submit-area">
+            <!-- When form is valid button becomes available -->
+            <button
+              class="form-button contact-form-button"
+              type="button"
+              (click)="addAddress()"
+            >
+              <mat-icon aria-label="Side nav toggle icon">add</mat-icon>
+              <span>Add Address</span>
+            </button>
+            <button
+              class="form-button contact-form-button"
+              [disabled]="addressList.controls[i].invalid"
+              type="submit"
+            >
+              <mat-icon>save</mat-icon>
+              <span>Save</span>
+            </button>
+          </div>
+        </form>
+      </ng-container>
+    </div>
   </div>
 </div>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Contact, Address, HttpService } from '../../api/contact-api-service';
+import { Contact, Address, ApiService } from '../../api/api.service';
+import { FormControl, Validators, FormGroup } from '@angular/forms';
 import { forkJoin } from 'rxjs';
 @Component({
   selector: 'app-contacts',
@@ -7,18 +8,21 @@ import { forkJoin } from 'rxjs';
   styleUrls: ['./contacts.component.scss'],
 })
 export class ContactsComponent implements OnInit {
-  constructor(private httpService: HttpService) {}
+  constructor(private apiService: ApiService) {}
 
   contacts: Contact[] = [];
   isContactFormOpen: Boolean = false;
   selectedContact = {} as Contact;
   addresses: Address[] = [];
+  form: FormGroup = new FormGroup({
+    contactName: new FormControl('', Validators.required),
+  });
 
   getContactInformation(): void {
     // GET contacts and addresses
     forkJoin({
-      contacts: this.httpService.getAllContacts(),
-      addresses: this.httpService.getAllAddresses(),
+      contacts: this.apiService.getAllContacts(),
+      addresses: this.apiService.getAllAddresses(),
     }).subscribe(({ contacts, addresses }) => {
       // Add addresses to contacts by contactId
       this.contacts = contacts.map((contact: Contact) => {
@@ -33,6 +37,7 @@ export class ContactsComponent implements OnInit {
   }
 
   openContactForm = (): void => {
+    console.log('form', this.form);
     this.isContactFormOpen = true;
   };
   editContact = (contact: Contact): void => {
@@ -41,5 +46,6 @@ export class ContactsComponent implements OnInit {
   };
   ngOnInit(): void {
     this.getContactInformation();
+    console.log('form', this.form);
   }
 }

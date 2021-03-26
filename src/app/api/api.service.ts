@@ -1,6 +1,9 @@
-const baseUrl = 'http://localhost:3000';
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import {
+  HttpClient,
+  HttpErrorResponse,
+  HttpHeaders,
+} from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 
@@ -28,23 +31,42 @@ export type Country = {
 };
 
 @Injectable({ providedIn: 'root' })
-export class HttpService {
+export class ApiService {
   constructor(private http: HttpClient) {}
+
+  baseUrl = 'http://localhost:3000';
+
   getRequest(url: string): Observable<any> {
     return this.http.get(url);
   }
+  postRequest(
+    url: string,
+    payload: Object,
+    options: Object = {}
+  ): Observable<any> {
+    return this.http.post(
+      url,
+      {
+        ...payload,
+      },
+      options
+    );
+  }
+
   getAllContacts(): Observable<any> {
-    let url: string = baseUrl + '/contacts';
+    let url: string = this.baseUrl + '/contacts';
     return this.getRequest(url);
   }
-
   getAllCountries(): Observable<any> {
-    let url: string = baseUrl + '/countries';
+    let url: string = this.baseUrl + '/countries';
     return this.getRequest(url);
   }
-
   getAllAddresses(): Observable<any> {
-    let url: string = baseUrl + '/addresses';
+    let url: string = this.baseUrl + '/addresses';
     return this.getRequest(url);
+  }
+  postAddress(address: Address): Observable<Address> {
+    let url: string = this.baseUrl + '/addresses';
+    return this.postRequest(url, address);
   }
 }
