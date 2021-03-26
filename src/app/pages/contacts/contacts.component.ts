@@ -37,7 +37,6 @@ export class ContactsComponent implements OnInit {
   }
 
   openContactForm = (): void => {
-    console.log('form', this.form);
     this.isContactFormOpen = true;
   };
   editContact = (contact: Contact): void => {

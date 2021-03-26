@@ -52,6 +52,19 @@ export class ApiService {
       options
     );
   }
+  putRequest(
+    url: string,
+    payload: Object,
+    options: Object = {}
+  ): Observable<any> {
+    return this.http.put(
+      url,
+      {
+        ...payload,
+      },
+      options
+    );
+  }
 
   getAllContacts(): Observable<any> {
     let url: string = this.baseUrl + '/contacts';
@@ -68,5 +81,10 @@ export class ApiService {
   postAddress(address: Address): Observable<Address> {
     let url: string = this.baseUrl + '/addresses';
     return this.postRequest(url, address);
+  }
+  putAddress(address: Address): Observable<Address> {
+    let id = address.id;
+    let url: string = this.baseUrl + '/addresses/' + id;
+    return this.putRequest(url, address);
   }
 }

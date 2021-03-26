@@ -33,13 +33,25 @@ export class ContactFormComponent implements OnInit {
   });
 
   onSubmit = (index: number): void => {
-    console.log('Submitting', this.addressList.controls[index]);
+    const newAddress = {
+      ...this.addressList.controls[index].value,
+      contactId: this.contact.id.toString(),
+    };
+    if (newAddress.id) {
+      console.log('Calling PUT in service');
+      this.apiService.putAddress(newAddress).subscribe((address: Address) => {
+        this.addressList.controls[index].patchValue({
+          ...address,
+        });
+      });
+    } else {
+      this.apiService.postAddress(newAddress).subscribe((address: Address) => {
+        this.addressList.controls[index].patchValue({
+          ...address,
+        });
+      });
+    }
   };
-  saveAddress(address: Address): void {
-    this.apiService.postAddress(address).subscribe((address: Address) => {
-      this.addresses.push(address);
-    });
-  }
 
   get addressList(): FormArray {
     return this.addressFormList.get('addressList') as FormArray;
