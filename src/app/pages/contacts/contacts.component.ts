@@ -45,6 +45,5 @@ export class ContactsComponent implements OnInit {
   };
   ngOnInit(): void {
     this.getContactInformation();
-    console.log('form', this.form);
   }
 }

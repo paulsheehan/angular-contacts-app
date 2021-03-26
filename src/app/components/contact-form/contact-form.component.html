@@ -70,7 +70,10 @@
             </button>
             <button
               class="form-button contact-form-button"
-              [disabled]="addressList.controls[i].invalid"
+              [disabled]="
+                addressList.controls[i].invalid ||
+                !addressList.controls[i].dirty
+              "
               type="submit"
             >
               <mat-icon>save</mat-icon>

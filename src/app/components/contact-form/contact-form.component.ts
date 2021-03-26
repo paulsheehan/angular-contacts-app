@@ -33,12 +33,12 @@ export class ContactFormComponent implements OnInit {
   });
 
   onSubmit = (index: number): void => {
+    console.log(this.addressList.controls[index]);
     const newAddress = {
       ...this.addressList.controls[index].value,
       contactId: this.contact.id.toString(),
     };
     if (newAddress.id) {
-      console.log('Calling PUT in service');
       this.apiService.putAddress(newAddress).subscribe((address: Address) => {
         this.addressList.controls[index].patchValue({
           ...address,
@@ -62,17 +62,14 @@ export class ContactFormComponent implements OnInit {
       street1: new FormControl(address.street1, [Validators.required]),
       street2: new FormControl(address.street2, [Validators.required]),
       town: new FormControl(address.town, [Validators.required]),
-      country: new FormControl(null, [Validators.required]),
+      country: new FormControl(address.country, [Validators.required]),
       id: new FormControl(address.id),
     });
-    addressFormGroup.controls['country'].setValue('GB', {
-      onlySelf: true,
-    });
+    console.log(addressFormGroup);
     this.addressList.push(addressFormGroup);
   };
 
   ngOnInit(): void {
-    // Decide 'Edit' or 'New' contact based on 'contact' property
     if (Object.keys(this.contact).length > 0) {
       this.hasContact = true;
       this.addresses = this.contact.addresses.slice();
