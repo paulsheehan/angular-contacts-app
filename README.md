@@ -1,6 +1,6 @@
 # MifinityAngularTest
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.4.
+Simple Agnular app to manage (CRUD) contacts on a mock API (json-server)
 
 ## Install dependencies
 
